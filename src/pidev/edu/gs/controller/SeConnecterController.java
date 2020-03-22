@@ -68,6 +68,11 @@ public class SeConnecterController implements Initializable {
                 Parent root = loader.load();
                 PanelClientController panelClientController = loader.getController();
                 mdp.getScene().setRoot(root);
+            }else if(utilisateur.getRoles().equals("a:1:{i:0;s:16:\"ROLE_RESPONSABLE\";}")){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panelAdmin.fxml"));
+                Parent root = loader.load();
+                PanelAdminController panelAdminController = loader.getController();
+                mdp.getScene().setRoot(root);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -79,6 +84,7 @@ public class SeConnecterController implements Initializable {
         }
 
     }
+    //ddddaaa
 
     @FXML
     public void sinscrire(ActionEvent actionEvent) throws IOException {
