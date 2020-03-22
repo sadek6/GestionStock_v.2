@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesProduitsController">
+   <children>
+      <Label fx:id="nomUtilisateur" layoutX="255.0" layoutY="33.0" text="liste des produits" />
+      <TableView fx:id="listeProduits" layoutX="118.0" layoutY="78.0" prefHeight="200.0" prefWidth="365.0">
+        <columns>
+          <TableColumn fx:id="nomProduit" prefWidth="135.0" text="Nom du Produit" />
+          <TableColumn fx:id="prixProduit" prefWidth="117.0" text="Prix" />
+            <TableColumn fx:id="ajouterPanier" prefWidth="112.0" text="Action" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
