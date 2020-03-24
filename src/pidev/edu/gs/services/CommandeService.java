@@ -58,6 +58,39 @@ public class CommandeService {
         return list;
     }
     
+    public ObservableList<Commande> afficherAdmin(){
+        ObservableList<Commande> list = FXCollections.observableArrayList();
+        String req = "select c.id, c.prixtotal, c.etat , u.username from commande c inner join user u on u.id = c.client_id;";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Commande p = new Commande(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        System.out.println("liste commandes admin recupere");
+        return list;
+    }
+    
+    public ObservableList<Commande> chercher(String mot){
+        ObservableList<Commande> list = FXCollections.observableArrayList();
+        String req = "select c.id, c.prixtotal, c.etat , u.username from commande c inner join user u on u.id = c.client_id where u.username like '"+mot+"' or c.id like '"+mot+"' or c.prixtotal like '"+mot+"' or c.etat like '"+mot+"';";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Commande p = new Commande(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        System.out.println("liste commandes admin recherche recupere");
+        return list;
+    }
+    
     public void remove(int idCommande){
         
         String req = "delete from commande where id = ?;";
@@ -69,4 +102,19 @@ public class CommandeService {
         } catch (SQLException ex) {
         }
     }
+    
+    public void traiter(int idCommande){
+        
+        String req = "update commande set etat = ? where id = ?";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, "traite");
+            pst.setInt(2, idCommande);
+            pst.executeUpdate();
+            System.out.println("commade traite!");
+        } catch (SQLException ex) {
+        }
+    }
+    
+    
 }

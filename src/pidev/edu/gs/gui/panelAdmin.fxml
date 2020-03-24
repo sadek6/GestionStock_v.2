@@ -20,7 +20,7 @@
                            <children>
                               <MenuButton mnemonicParsing="false" text="Les commandes">
                                 <items>
-                                  <MenuItem mnemonicParsing="false" text="Liste des commandes" />
+                                  <MenuItem mnemonicParsing="false" onAction="#afficherCommandes" text="Liste des commandes" />
                                 </items>
                               </MenuButton>
                            </children>
