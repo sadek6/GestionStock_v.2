@@ -18,6 +18,15 @@ public class Commande {
     private int prixTotale;
     private String etat;
     private int adresse;
+    private String nomClient;
+
+    public String getNomClient() {
+        return nomClient;
+    }
+
+    public void setNomClient(String nomClient) {
+        this.nomClient = nomClient;
+    }
 
     public Commande() {
     }
@@ -27,6 +36,13 @@ public class Commande {
         this.idClient = idClient;
         this.prixTotale = prixTotale;
         this.etat = etat;
+    }
+
+    public Commande(int id, int prixTotale, String etat, String nomClient) {
+        this.id = id;
+        this.prixTotale = prixTotale;
+        this.etat = etat;
+        this.nomClient = nomClient;
     }
 
     @Override

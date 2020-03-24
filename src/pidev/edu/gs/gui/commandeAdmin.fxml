@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="containerCommande" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.gui.CommandeAdminController">
+   <children>
+      <TableView fx:id="listeCommandeAdmin" layoutX="5.0" layoutY="44.0" prefHeight="200.0" prefWidth="587.0">
+        <columns>
+          <TableColumn fx:id="nomClient" prefWidth="75.0" text="Nom client" />
+          <TableColumn fx:id="idCommande" prefWidth="111.0" text="Id Commande" />
+            <TableColumn fx:id="prixTotale" prefWidth="94.0" text="Prix totale" />
+            <TableColumn fx:id="etatCommande" prefWidth="127.0" text="Etat" />
+            <TableColumn fx:id="traiterCommande" prefWidth="60.0" text="Traiter" />
+            <TableColumn fx:id="supprimerCommande" prefWidth="119.0" text="Supprimer" />
+        </columns>
+      </TableView>
+      <TextField fx:id="mot" layoutX="224.0" layoutY="14.0" onKeyTyped="#chercher" />
+   </children>
+</AnchorPane>
