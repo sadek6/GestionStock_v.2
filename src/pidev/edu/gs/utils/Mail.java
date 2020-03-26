@@ -33,6 +33,7 @@ public class Mail {
         properties.put("mail.smtp.port", "587");
 
         String monEmail = "mohamedsadeksnoussi@gmail.com";
+        //test jjjj ok hhh
         String mdp = "";
 
         Session session = Session.getInstance(properties, new Authenticator() {

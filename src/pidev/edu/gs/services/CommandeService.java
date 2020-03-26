@@ -76,7 +76,7 @@ public class CommandeService {
     
     public ObservableList<Commande> chercher(String mot){
         ObservableList<Commande> list = FXCollections.observableArrayList();
-        String req = "select c.id, c.prixtotal, c.etat , u.username from commande c inner join user u on u.id = c.client_id where u.username like '"+mot+"' or c.id like '"+mot+"' or c.prixtotal like '"+mot+"' or c.etat like '"+mot+"';";
+        String req = "select c.id, c.prixtotal, c.etat , u.username from commande c inner join user u on u.id = c.client_id where u.username like '"+mot+"%' or c.id like '"+mot+"%' or c.prixtotal like '"+mot+"%' or c.etat like '"+mot+"%';";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
             
