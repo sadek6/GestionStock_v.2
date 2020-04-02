@@ -9,6 +9,7 @@ import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,14 +19,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import pidev.edu.gs.controller.SeConnecterController;
+import pidev.edu.gs.entities.Addresse;
 import pidev.edu.gs.entities.Commande;
+import pidev.edu.gs.services.AddresseService;
 import pidev.edu.gs.services.CommandeService;
 import pidev.edu.gs.utils.Facteur;
 
@@ -45,11 +50,26 @@ public class ListeDesCommandesController implements Initializable {
     @FXML
     private TableColumn annulerCommande;
     @FXML
-    private TableView listeDesCommandes;
+    private TableView<Commande> listeDesCommandes;
 
     private ObservableList<Commande> list;
     @FXML
     private TableColumn imprimerFacteur;
+    @FXML
+    private TextField newNumTel;
+    @FXML
+    private TextField newMail;
+    @FXML
+    private TextField newPays;
+    @FXML
+    private TextField newVille;
+    @FXML
+    private TextField newPinCode;
+    @FXML
+    private Button mod;
+    @FXML
+    private Label idAdresse;
+    
 
     /**
      * Initializes the controller class.
@@ -59,6 +79,8 @@ public class ListeDesCommandesController implements Initializable {
         // TODO
         System.out.println("hello");
         populateTableView();
+        showHide(false);
+        idAdresse.setVisible(false);
     }
 
     private void populateTableView() {
@@ -162,5 +184,48 @@ public class ListeDesCommandesController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeDesCommandes.fxml"));
         Parent root = loader.load();
         containerCommandes.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void getCommande() throws SQLException{
+        Commande commande = new Commande();
+        commande = listeDesCommandes.getSelectionModel().getSelectedItem();
+        System.out.println(commande);
+        AddresseService addresseService = new AddresseService();
+        Addresse addresse = addresseService.findAdresse(commande.getAdresse());
+        System.out.println(addresse);
+        showHide(true);
+        newNumTel.setText(String.valueOf(addresse.getNumTel()));
+        newMail.setText(addresse.getMail());
+        newPays.setText(addresse.getPays());
+        newPinCode.setText(String.valueOf(addresse.getPinCode()));
+        newVille.setText(addresse.getVille());
+        idAdresse.setText(String.valueOf(addresse.getId()));
+        
+    }
+    
+    @FXML
+    public void modifierAdresse(){
+        
+        Addresse addresse = new Addresse();
+        addresse.setId(Integer.parseInt(idAdresse.getText()));
+        addresse.setNumTel(Integer.parseInt(newNumTel.getText()));
+        addresse.setMail(newMail.getText());
+        addresse.setPays(newPays.getText());
+        addresse.setPinCode(Integer.parseInt(newPinCode.getText()));
+        addresse.setVille(newVille.getText());
+        System.out.println("begin mod @");
+        AddresseService addresseService = new AddresseService();
+        addresseService.modifierAdresse(addresse);
+        showHide(false);
+    }
+    
+    public void showHide(boolean b){
+        newNumTel.setVisible(b);
+        newMail.setVisible(b);
+        newPays.setVisible(b);
+        newPinCode.setVisible(b);
+        newVille.setVisible(b);
+        mod.setVisible(b);
     }
 }

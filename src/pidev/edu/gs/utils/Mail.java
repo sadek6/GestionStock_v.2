@@ -34,7 +34,7 @@ public class Mail {
 
         String monEmail = "mohamedsadeksnoussi@gmail.com";
         //test jjjj ok hhh
-        String mdp = "";
+        String mdp = "#b@rr@n1k3";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override

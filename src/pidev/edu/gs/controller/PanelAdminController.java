@@ -42,4 +42,20 @@ public class PanelAdminController implements Initializable {
         containerAdmin.getChildren().setAll(root);
     }
     
+    @FXML
+    public void ajouterJeuxConcours(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter jeux concours");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/formulaireJeuxConcours.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ListerJeuxConcours(ActionEvent actionEvent) throws IOException{
+        System.out.println("lister jeux concours");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeJeuxConcours.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
 }

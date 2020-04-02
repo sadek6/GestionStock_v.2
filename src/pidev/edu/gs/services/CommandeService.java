@@ -49,6 +49,7 @@ public class CommandeService {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Commande p = new Commande(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                p.setAdresse(rs.getInt(5));
                 list.add(p);
             }
         } catch (SQLException ex) {
