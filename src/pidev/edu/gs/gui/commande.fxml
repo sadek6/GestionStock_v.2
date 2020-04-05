@@ -12,11 +12,13 @@
       <Label layoutX="152.0" layoutY="155.0" text="pays" />
       <Label layoutX="154.0" layoutY="205.0" text="ville" />
       <Label layoutX="131.0" layoutY="249.0" text="code postale" />
-      <TextField fx:id="numTel" layoutX="226.0" layoutY="52.0" />
-      <TextField fx:id="email" layoutX="226.0" layoutY="96.0" />
-      <TextField fx:id="pays" layoutX="226.0" layoutY="151.0" />
-      <TextField fx:id="ville" layoutX="226.0" layoutY="201.0" />
-      <TextField fx:id="codePostale" layoutX="226.0" layoutY="245.0" />
+      <TextField fx:id="numTel" layoutX="226.0" layoutY="52.0" onKeyPressed="#controlNumero" />
+      <TextField fx:id="email" layoutX="226.0" layoutY="96.0" onKeyPressed="#controlEmail" />
+      <TextField fx:id="pays" layoutX="226.0" layoutY="151.0" onKeyReleased="#controlPays" />
+      <TextField fx:id="ville" layoutX="226.0" layoutY="201.0" onKeyReleased="#controlVille" />
+      <TextField fx:id="codePostale" layoutX="226.0" layoutY="245.0" onKeyTyped="#controlCodePostale" />
       <Button layoutX="274.0" layoutY="302.0" mnemonicParsing="false" onAction="#passerCommande" text="Valider" />
+      <Label fx:id="numTelTest" layoutX="274.0" layoutY="77.0" text="Label" />
+      <Label fx:id="codePostaleTest" layoutX="274.0" layoutY="278.0" text="Label" />
    </children>
 </AnchorPane>

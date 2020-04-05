@@ -24,6 +24,7 @@
                                     <MenuItem mnemonicParsing="false" onAction="#afficherPanier" text="Panier" />
                                     <MenuItem mnemonicParsing="false" onAction="#afficherCommandes" text="Mes Commandes" />
                                     <MenuItem mnemonicParsing="false" onAction="#afficherJeux" text="Jeux" />
+                                    <MenuItem fx:id="mesParticipations" mnemonicParsing="false" onAction="#afficherMesParticipation" text="mes" />
                                 </items>
                               </MenuButton>
                            </children>

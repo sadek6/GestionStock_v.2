@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev.edu.gs.gui;
+package pidev.edu.gs.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +30,7 @@ import pidev.edu.gs.entities.JeuxConcours;
 import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.services.JeuxConcoursService;
 import java.util.concurrent.ThreadLocalRandom;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -68,6 +69,10 @@ public class ListeJeuxConcoursController implements Initializable {
     private Button newV;
     @FXML
     private Label idd;
+
+    Boolean verificationTitre = true;
+    Boolean verificationPrix = true;
+    Boolean verificationNbParticipants = true;
 
     /**
      * Initializes the controller class.
@@ -152,11 +157,11 @@ public class ListeJeuxConcoursController implements Initializable {
                         test.setOnAction(event -> {
                             JeuxConcours p = getTableView().getItems().get(getIndex());
                             JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
-                            if ((p.getEtat() == 0) && (p.getNbParticipants() > 2)){
+                            if ((p.getEtat() == 0) && (p.getNbParticipants() > 2)) {
                                 ObservableList<Utilisateur> l = jeuxConcoursService.getUtilisateursJeux(p.getId());
                                 System.out.println(l.size());
                                 //int r = getRandomNumberInRange(1, l.size()-1);
-                                int r = ThreadLocalRandom.current().nextInt(1, l.size()-1);
+                                int r = ThreadLocalRandom.current().nextInt(1, l.size() - 1);
                                 System.out.println(r);
                                 System.out.println(l.get(r).toString());
                                 p.setEtat(1);
@@ -231,17 +236,75 @@ public class ListeJeuxConcoursController implements Initializable {
 
     @FXML
     public void modifierJeuxConcours2() throws IOException {
-        JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
-        JeuxConcours jeuxConcours = new JeuxConcours();
+        if (testGlobale()) {
+            JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
+            JeuxConcours jeuxConcours = new JeuxConcours();
 
-        jeuxConcours.setId(Integer.valueOf(idd.getText()));
-        jeuxConcours.setNomJeux(newTitreJeux.getText());
-        jeuxConcours.setNbParticipants(Integer.parseInt((newNbParticipants.getText())));
-        jeuxConcours.setPrix(Integer.parseInt(newPrix.getText()));
-        System.out.println(jeuxConcours);
-        jeuxConcoursService.modifierJeuxConcours(jeuxConcours);
-        showHide(false);
-        refresh();
+            jeuxConcours.setId(Integer.valueOf(idd.getText()));
+            jeuxConcours.setNomJeux(newTitreJeux.getText());
+            jeuxConcours.setNbParticipants(Integer.parseInt((newNbParticipants.getText())));
+            jeuxConcours.setPrix(Integer.parseInt(newPrix.getText()));
+            System.out.println(jeuxConcours);
+            jeuxConcoursService.modifierJeuxConcours(jeuxConcours);
+            showHide(false);
+            refresh();
+        }
+    }
+
+    @FXML
+    private void controlTitre(KeyEvent event) {
+        verificationTitre = false;
+        if (nomJeux.getText().trim().equals("")) {
+            verificationTitre = false;
+        } else {
+            verificationTitre = true;
+        }
+    }
+
+    @FXML
+    private void controlPrix(KeyEvent event) {
+        verificationPrix = false;
+        if (Integer.parseInt(prix.getText()) == 0) {
+            verificationPrix = false;
+        } else {
+            verificationPrix = true;
+        }
+    }
+
+    @FXML
+    private void controlNb(KeyEvent event) {
+        verificationNbParticipants = false;
+        if (Integer.parseInt(nbParticipants.getText()) < 0) {
+            verificationNbParticipants = false;
+        } else {
+            verificationNbParticipants = true;
+        }
+    }
+
+    public boolean testGlobale() {
+        if (verificationTitre == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir le titre");
+            alert.show();
+        } else if (verificationPrix == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez verfifer le prix");
+            alert.show();
+        } else if (verificationNbParticipants == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez verfifer nb");
+            alert.show();
+        } else {
+            return true;
+        }
+
+        return false;
     }
 
 }

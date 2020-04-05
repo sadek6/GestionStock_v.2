@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -27,6 +28,8 @@ public class PanelClientController implements Initializable {
     private AnchorPane container_client;
     @FXML
     private Label idUtilisateur;
+    @FXML
+    private MenuItem mesParticipations;
 
     /**
      * Initializes the controller class.
@@ -64,6 +67,14 @@ public class PanelClientController implements Initializable {
     public void afficherJeux(ActionEvent actionEvent) throws IOException{
         System.out.println("afficher jeux");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeJeuxConcoursClient.fxml"));
+        Parent root = loader.load();
+        container_client.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void afficherMesParticipation(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher jeux");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/mesParticipations.fxml"));
         Parent root = loader.load();
         container_client.getChildren().setAll(root);
     }

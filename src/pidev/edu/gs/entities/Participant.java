@@ -11,33 +11,57 @@ package pidev.edu.gs.entities;
  */
 public class Participant {
     
-    private int idUser;
-    private int idJeux;
+    private int idParticipant;
+    private String nomParticipant;
+    private int idJeuxConcours;
+    private String nomJeuxConcours;
+    private int prix;
 
-    public Participant(int idUser, int idJeux) {
-        this.idUser = idUser;
-        this.idJeux = idJeux;
+    public Participant(int idParticipant, String nomParticipant, int idJeuxConcours, String nomJeuxConcours, int prix) {
+        this.idParticipant = idParticipant;
+        this.nomParticipant = nomParticipant;
+        this.idJeuxConcours = idJeuxConcours;
+        this.nomJeuxConcours = nomJeuxConcours;
+        this.prix = prix;
     }
 
-    @Override
-    public String toString() {
-        return "Participant{" + "idUser=" + idUser + ", idJeux=" + idJeux + '}';
+    public int getIdParticipant() {
+        return idParticipant;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public void setIdParticipant(int idParticipant) {
+        this.idParticipant = idParticipant;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public String getNomParticipant() {
+        return nomParticipant;
     }
 
-    public int getIdJeux() {
-        return idJeux;
+    public void setNomParticipant(String nomParticipant) {
+        this.nomParticipant = nomParticipant;
     }
 
-    public void setIdJeux(int idJeux) {
-        this.idJeux = idJeux;
+    public int getIdJeuxConcours() {
+        return idJeuxConcours;
     }
-    
+
+    public void setIdJeuxConcours(int idJeuxConcours) {
+        this.idJeuxConcours = idJeuxConcours;
+    }
+
+    public String getNomJeuxConcours() {
+        return nomJeuxConcours;
+    }
+
+    public void setNomJeuxConcours(String nomJeuxConcours) {
+        this.nomJeuxConcours = nomJeuxConcours;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
 }

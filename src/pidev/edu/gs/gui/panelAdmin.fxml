@@ -31,6 +31,7 @@
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#ajouterJeuxConcours" text="Ajouter" />
                                   <MenuItem mnemonicParsing="false" onAction="#ListerJeuxConcours" text="Lister" />
+                                    <MenuItem mnemonicParsing="false" onAction="#ListerParticipants" text="Liste des participants" />
                                 </items>
                               </MenuButton>
                            </children>

@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pidev.edu.gs.entities.JeuxConcours;
+import pidev.edu.gs.entities.Participant;
 import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.utils.ConnectionBD;
 
@@ -172,4 +173,42 @@ public class JeuxConcoursService {
         return list;
     }
     
+    public ObservableList<Participant> afficherListeParticipants() {
+
+        ObservableList<Participant> list = FXCollections.observableArrayList();
+        String req = "SELECT U.id, U.nom, JC.id, JC.nomJeux, JC.prix FROM listeparticipant AS LP  JOIN jeuxconcours AS JC ON LP.idJeux = JC.id JOIN user AS U ON LP.idUser = U.id;";
+
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Participant p = new Participant(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        System.out.println("liste des participants recupere");
+
+        return list;
+    }
+    
+    public ObservableList<JeuxConcours> mesParticipations(int idUser) {
+        ObservableList<JeuxConcours> list = FXCollections.observableArrayList();
+        String req = "SELECT JC.id, JC.nomJeux, JC.prix, JC.nbParticipants, JC.etat from jeuxconcours AS JC JOIN listeparticipant AS LP ON JC.id = LP.idJeux WHERE JC.etat = 0 AND LP.idUser = ?;";
+
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                JeuxConcours p = new JeuxConcours(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5));
+                if(p.getEtat() == 0)
+                    list.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        System.out.println("liste jeux concours recupere");
+
+        return list;
+    }
 }

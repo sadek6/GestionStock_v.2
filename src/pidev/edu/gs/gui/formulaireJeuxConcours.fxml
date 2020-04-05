@@ -10,9 +10,9 @@
       <Label layoutX="156.0" layoutY="54.0" text="Titre du jeux" />
       <Label layoutX="154.0" layoutY="101.0" text="Prix à gagner" />
       <Label layoutX="37.0" layoutY="145.0" text="Nombre maximum des participants" />
-      <TextField fx:id="nomJeux" layoutX="248.0" layoutY="50.0" />
-      <TextField fx:id="prix" layoutX="248.0" layoutY="97.0" />
-      <TextField fx:id="nbParticipants" layoutX="248.0" layoutY="141.0" />
+      <TextField fx:id="nomJeux" layoutX="248.0" layoutY="50.0" onKeyReleased="#controlTitre" />
+      <TextField fx:id="prix" layoutX="248.0" layoutY="97.0" onKeyReleased="#controlPrix" />
+      <TextField fx:id="nbParticipants" layoutX="248.0" layoutY="141.0" onKeyReleased="#controlNb" />
       <Button layoutX="297.0" layoutY="200.0" mnemonicParsing="false" onAction="#ajouterJeuxConcours" text="Valider" />
    </children>
 </AnchorPane>

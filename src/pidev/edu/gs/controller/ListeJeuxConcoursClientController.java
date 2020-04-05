@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev.edu.gs.gui;
+package pidev.edu.gs.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -42,7 +43,7 @@ public class ListeJeuxConcoursClientController implements Initializable {
     private TableColumn participer;
     @FXML
     private TableColumn quitter;
-    
+
     private ObservableList<JeuxConcours> list;
 
     /**
@@ -53,15 +54,15 @@ public class ListeJeuxConcoursClientController implements Initializable {
         // TODO
         populateTableView();
     }
-    
+
     private void populateTableView() {
-        
+
         JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
         list = jeuxConcoursService.afficherJeuxDispo();
-        
+
         titreJeux.setCellValueFactory(new PropertyValueFactory<>("nomJeux"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        
+
         Callback<TableColumn<JeuxConcours, String>, TableCell<JeuxConcours, String>> cellFactoryParticiper = (param) -> {
 
             final TableCell<JeuxConcours, String> cell = new TableCell<JeuxConcours, String>() {
@@ -79,11 +80,19 @@ public class ListeJeuxConcoursClientController implements Initializable {
                             JeuxConcours p = getTableView().getItems().get(getIndex());
                             ParticiperService participerService = new ParticiperService();
                             try {
+                                if (!participerService.isParticiper(SeConnecterController.idUtilisateur, p.getId())) {
+                                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                                    alert.setTitle("Warning");
+                                    alert.setHeaderText("Warning");
+                                    alert.setContentText("Vous êtes déjà inscrit au jeu du bon d'achat");
+                                    alert.show();
+                                }
                                 participerService.participer(SeConnecterController.idUtilisateur, p.getId());
+                                
                             } catch (SQLException ex) {
                                 Logger.getLogger(ListeJeuxConcoursClientController.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
+
                         });
 
                         setGraphic(test);
@@ -96,8 +105,8 @@ public class ListeJeuxConcoursClientController implements Initializable {
             };
             return cell;
         };
-        
-        Callback<TableColumn<JeuxConcours, String>, TableCell<JeuxConcours, String>> cellFactoryQuitter = (param) -> {
+
+        /*Callback<TableColumn<JeuxConcours, String>, TableCell<JeuxConcours, String>> cellFactoryQuitter = (param) -> {
 
             final TableCell<JeuxConcours, String> cell = new TableCell<JeuxConcours, String>() {
 
@@ -118,7 +127,7 @@ public class ListeJeuxConcoursClientController implements Initializable {
                             } catch (SQLException ex) {
                                 Logger.getLogger(ListeJeuxConcoursClientController.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
+
                         });
 
                         setGraphic(test);
@@ -130,12 +139,12 @@ public class ListeJeuxConcoursClientController implements Initializable {
 
             };
             return cell;
-        };
-        
+        };*/
+
         participer.setCellFactory(cellFactoryParticiper);
-        quitter.setCellFactory(cellFactoryQuitter);
+        //quitter.setCellFactory(cellFactoryQuitter);
         listeJeuxConcours.setItems(list);
-        
+
     }
-    
+
 }

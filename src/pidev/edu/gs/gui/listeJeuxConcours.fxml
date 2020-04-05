@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="containerListeJC" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.gui.ListeJeuxConcoursController">
+<AnchorPane id="AnchorPane" fx:id="containerListeJC" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeJeuxConcoursController">
    <children>
       <TableView fx:id="listeJeuxConcours" layoutX="3.0" layoutY="7.0" prefHeight="200.0" prefWidth="594.0">
         <columns>
@@ -21,7 +21,7 @@
         </columns>
       </TableView>
       <Button layoutX="513.0" layoutY="215.0" mnemonicParsing="false" onAction="#modifierJeuxConcours" text="Modifier" />
-      <TextField fx:id="newTitreJeux" layoutX="55.0" layoutY="228.0" promptText="Titre du jeux" />
+      <TextField fx:id="newTitreJeux" layoutX="55.0" layoutY="228.0" onKeyPressed="#controlTitre" promptText="Titre du jeux" />
       <TextField fx:id="newPrix" layoutX="55.0" layoutY="270.0" promptText="Prix à gagner" />
       <TextField fx:id="newNbParticipants" layoutX="55.0" layoutY="313.0" promptText="Nombres des participants" />
       <Button fx:id="newV" layoutX="62.0" layoutY="361.0" mnemonicParsing="false" onAction="#modifierJeuxConcours2" text="Valider la modification" />

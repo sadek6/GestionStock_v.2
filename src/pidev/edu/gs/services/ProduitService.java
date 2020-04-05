@@ -34,7 +34,11 @@ public class ProduitService {
             PreparedStatement pst = myConnection.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                Produit p = new Produit(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4));
+                //Produit p = new Produit(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4));
+                Produit p = new Produit();
+                p.setId(rs.getInt(1));
+                p.setNom(rs.getString(2));
+                p.setPrix(rs.getFloat(3));
                 //Personne p = new Personne(rs.getInt("id"), rs.getString(2), rs.getString(3));
                 list.add(p);
             }
