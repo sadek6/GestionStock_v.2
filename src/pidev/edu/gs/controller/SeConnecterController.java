@@ -64,12 +64,12 @@ public class SeConnecterController implements Initializable {
             System.out.println("authentification reussite");
             idUtilisateur = utilisateur.getId();
             if (utilisateur.getRoles().equals("a:1:{i:0;s:11:\"ROLE_CLIENT\";}")) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panelClient.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/.fxml"));
                 Parent root = loader.load();
                 PanelClientController panelClientController = loader.getController();
                 mdp.getScene().setRoot(root);
             }else if(utilisateur.getRoles().equals("a:1:{i:0;s:16:\"ROLE_RESPONSABLE\";}")){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panelAdmin.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/.fxml"));
                 Parent root = loader.load();
                 PanelAdminController panelAdminController = loader.getController();
                 mdp.getScene().setRoot(root);

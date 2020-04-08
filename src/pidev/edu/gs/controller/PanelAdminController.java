@@ -42,4 +42,32 @@ public class PanelAdminController implements Initializable {
         containerAdmin.getChildren().setAll(root);
     }
     
+    
+            
+    @FXML
+    public void ajouterMateriel(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher commandes admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/ajouterMateriel.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void listeMateriel(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher commandes admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeMateriel.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ajouterLocation(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/AjouterLocation.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    
+    
 }

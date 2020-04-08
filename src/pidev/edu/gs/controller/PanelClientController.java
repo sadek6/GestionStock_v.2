@@ -47,7 +47,7 @@ public class PanelClientController implements Initializable {
     @FXML
     public void afficherPanier(ActionEvent actionEvent) throws IOException{
         System.out.println("afficher panier");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panier.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/.fxml"));
         Parent root = loader.load();
         container_client.getChildren().setAll(root);
     }
@@ -55,7 +55,7 @@ public class PanelClientController implements Initializable {
     @FXML
     public void afficherCommandes(ActionEvent actionEvent) throws IOException{
         System.out.println("afficher commandes");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeDesCommandes.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/.fxml"));
         Parent root = loader.load();
         container_client.getChildren().setAll(root);
     }
