@@ -20,9 +20,9 @@ public class ConnectionBD {
 
     private ConnectionBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/pidev";
+            String url = "jdbc:mysql://localhost:8889/pidev";
             String login = "root";
-            String pwd = "";
+            String pwd = "root";
 
             connection = DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion Etablie ! ");

@@ -25,7 +25,7 @@ public class Panier {
 
     @Override
     public String toString() {
-        return "Panier{" + "id=" + id + ", idProduit=" + idProduit + ", idClient=" + idClient + ", quantite=" + quantite + '}';
+        return "Panier{" + "id=" + id + ", idProduit=" + idProduit + ", idClient=" + idClient + ", quantiteProduit=" + quantite + '}';
     }
 
     public int getId() {

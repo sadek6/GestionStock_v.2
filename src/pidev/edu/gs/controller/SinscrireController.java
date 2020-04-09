@@ -190,7 +190,7 @@ public class SinscrireController implements Initializable {
     
     @FXML
     private void controlEmail(KeyEvent event) throws SQLException {
-        verificationEmail = false;
+        verificationEmail = true;
         GestionUtilisateur gestionUtilisateur = new GestionUtilisateur();
         if(gestionUtilisateur.mailExiste(email.getText())){
             System.out.println("mail est unique");

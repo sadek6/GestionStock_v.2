@@ -74,7 +74,7 @@ public class PanierController implements Initializable {
         list = panierService.getUserBasket(SeConnecterController.idUtilisateur);
         
         nomProduits.setCellValueFactory(new PropertyValueFactory<>("idProduit"));
-        quantiteProduit.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+        quantiteProduit.setCellValueFactory(new PropertyValueFactory<>("quantiteProduit"));
         
         Callback<TableColumn<Panier, String>, TableCell<Panier, String>> cellFactoryRemove = (param) -> {
 

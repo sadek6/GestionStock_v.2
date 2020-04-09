@@ -25,7 +25,7 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" + prix + ", quantite=" + quantite + '}';
+        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" + prix + ", quantiteProduit=" + quantite + '}';
     }
 
     public int getId() {

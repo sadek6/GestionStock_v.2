@@ -63,4 +63,75 @@ public class ProduitService {
         }
         return price;
     }
+
+    public Produit getProduct(int idProdduct) {
+
+        String req = "select nom, prix, quantite from produit where id = ? ";
+        Produit p = null;
+        try {
+            PreparedStatement pst = myConnection.prepareStatement(req);
+            pst.setInt(1, idProdduct);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                p= new Produit(rs.getInt(1), rs.getString(2),rs.getFloat(3),
+                        rs.getInt(4));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+
+
+
+    public void ajouter(Produit prod) {
+        try {
+            String requete = "INSERT INTO produit (nom,prix,quantite) VALUES (?,?,?)";
+            PreparedStatement pst = myConnection.prepareStatement(requete);
+            pst.setString(1, prod.getNom());
+            pst.setFloat(2, prod.getPrix());
+            pst.setInt(3, prod.getQuantite());
+            pst.executeUpdate();
+            System.out.println("Produit ajoutée !");
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+
+
+    public void modifier(Produit p) {
+        try {
+            String requete = "UPDATE produit SET nom=?,quantite=?,prix=? WHERE id=?";
+            PreparedStatement pst = myConnection.prepareStatement(requete);
+            pst.setInt(4, p.getId());
+            pst.setString(1, p.getNom());
+            pst.setInt(2, p.getQuantite());
+            pst.setFloat(3, p.getPrix());
+            pst.executeUpdate();
+            System.out.println("Produit modifiée !");
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void supprimer(Produit p) {
+        try {
+            String requete = "DELETE FROM produit WHERE id=?";
+            PreparedStatement pst = myConnection.prepareStatement(requete);
+            pst.setInt(1, p.getId());
+            pst.executeUpdate();
+            System.out.println("Produit supprimée !");
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+
+
+
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="containerCommandes" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesCommandesController">
+   <children>
+      <TableView fx:id="listeDesCommandes" layoutX="141.0" layoutY="110.0" prefHeight="200.0" prefWidth="441.0">
+        <columns>
+          <TableColumn fx:id="etatCommande" prefWidth="75.0" text="Etat" />
+          <TableColumn fx:id="prixTotaleCommande" prefWidth="75.0" text="Prix Totale" />
+            <TableColumn fx:id="annulerCommande" prefWidth="167.0" text="Annuler la commande" />
+            <TableColumn fx:id="imprimerFacteur" prefWidth="123.0" text="Imprimer facteur" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

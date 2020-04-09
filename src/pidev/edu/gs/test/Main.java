@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pidev.edu.gs.entities.Categorie;
+import pidev.edu.gs.services.ServiceCategorie;
 
 /**
  *
@@ -31,7 +33,18 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+
         launch(args);
+
+        /*ServiceCategorie sp = new ServiceCategorie();
+        Categorie categorie =  new Categorie("aa", "aa");
+        System.out.println(categorie);
+        sp.ajouter(categorie);
+        sp.afficher().forEach(System.out::println);*/
+
+
+
     }
     
 }
