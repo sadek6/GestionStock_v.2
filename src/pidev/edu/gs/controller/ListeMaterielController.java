@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev.edu.gs.gui;
+package pidev.edu.gs.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

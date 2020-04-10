@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="containerMateriel" prefHeight="480.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.gui.ListeMaterielController">
+<AnchorPane id="AnchorPane" fx:id="containerMateriel" prefHeight="480.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeMaterielController">
    <children>
       <TableView fx:id="listeMateriel" layoutX="25.0" layoutY="49.0" prefHeight="200.0" prefWidth="388.0">
         <columns>
