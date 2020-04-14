@@ -138,4 +138,12 @@ public class PanelAdminController implements Initializable {
         containerAdmin.getChildren().setAll(root);
     }
     
+    @FXML
+    public void user(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/userModifier.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
 }

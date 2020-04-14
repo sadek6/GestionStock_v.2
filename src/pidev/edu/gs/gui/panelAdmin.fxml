@@ -15,7 +15,7 @@
          <children>
             <AnchorPane prefHeight="113.0" prefWidth="1032.0" style="-fx-background-color: #2f85c3;">
                <children>
-                  <HBox prefHeight="107.0" prefWidth="893.0">
+                  <HBox prefHeight="107.0" prefWidth="972.0">
                      <children>
                         <VBox prefHeight="107.0" prefWidth="155.0">
                            <children>
@@ -101,6 +101,19 @@
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#afficherReclamation" text="Lister" />
                                   <MenuItem mnemonicParsing="false" onAction="#repondre" text="repondre" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="118.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="89.0" prefWidth="115.0" style="-fx-background-color: #2f85c3;" text="Utilisateurs" textFill="#fcf7f7">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#user" text="User" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
                                 </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />
