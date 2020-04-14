@@ -4,15 +4,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesProduitsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesProduitsController">
    <children>
-      <Label fx:id="nomUtilisateur" layoutX="255.0" layoutY="33.0" text="liste des produits" />
-      <TableView fx:id="listeProduits" layoutX="118.0" layoutY="78.0" prefHeight="200.0" prefWidth="365.0">
+      <Label fx:id="nomUtilisateur" layoutX="242.0" layoutY="34.0" text="Liste des produits">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <TableView fx:id="listeProduits" layoutX="98.0" layoutY="78.0" prefHeight="200.0" prefWidth="408.0">
         <columns>
-          <TableColumn fx:id="nomProduit" prefWidth="135.0" text="Nom du Produit" />
-          <TableColumn fx:id="prixProduit" prefWidth="117.0" text="Prix" />
-            <TableColumn fx:id="ajouterPanier" prefWidth="112.0" text="Action" />
+          <TableColumn fx:id="nomProduit" prefWidth="143.0" text="Nom du Produit" />
+          <TableColumn fx:id="prixProduit" prefWidth="109.0" text="Prix" />
+            <TableColumn fx:id="ajouterPanier" prefWidth="155.0" text="Action" />
         </columns>
       </TableView>
    </children>

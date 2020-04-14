@@ -1,34 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.PanelClientController">
    <children>
-      <HBox prefHeight="72.0" prefWidth="600.0">
+      <HBox prefHeight="44.0" prefWidth="712.0">
          <children>
-            <AnchorPane id="AnchorPane" prefHeight="70.0" prefWidth="621.0">
+            <AnchorPane id="AnchorPane" prefHeight="57.0" prefWidth="711.0" style="-fx-background-color: #39A67F;">
                <children>
-                  <HBox layoutX="161.0" prefHeight="85.0" prefWidth="279.0">
+                  <HBox layoutX="1.0" prefHeight="85.0" prefWidth="493.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="85.0" prefWidth="113.0">
                            <children>
-                              <MenuButton mnemonicParsing="false" text="Produits">
+                              <MenuButton mnemonicParsing="false" prefHeight="55.0" prefWidth="74.0" style="-fx-background-color: #39A67F;" text="Shop" textFill="WHITE">
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#afficherProduit" text="Liste des produits" />
                                     <MenuItem mnemonicParsing="false" onAction="#afficherPanier" text="Panier" />
                                     <MenuItem mnemonicParsing="false" onAction="#afficherCommandes" text="Mes Commandes" />
-                                    <MenuItem mnemonicParsing="false" onAction="#afficherJeux" text="Jeux" />
-                                    <MenuItem fx:id="mesParticipations" mnemonicParsing="false" onAction="#afficherMesParticipation" text="mes" />
+                                    <MenuItem mnemonicParsing="false" onAction="#afficherJeux" text="Gagner un bon d'achat" />
+                                    <MenuItem fx:id="mesParticipations" mnemonicParsing="false" onAction="#afficherMesParticipation" text="Mes participations" />
                                 </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </MenuButton>
                            </children>
                         </VBox>
+                        <VBox prefHeight="85.0" prefWidth="126.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="58.0" prefWidth="122.0" style="-fx-background-color: #39A67F;" text="Reclamation" textFill="WHITE">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#ajouterReclamation" text="Ajouter" />
+                                  <MenuItem mnemonicParsing="false" onAction="#afficherReponse" text="Les reponces" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children></VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="528.0" prefHeight="93.0" prefWidth="176.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#logout" text="logout" />
                      </children>
                   </HBox>
                </children>
@@ -39,9 +61,13 @@
          <children>
             <ScrollPane prefHeight="479.0" prefWidth="707.0">
               <content>
-                <AnchorPane fx:id="container_client" minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="704.0">
+                <AnchorPane fx:id="container_client" minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="704.0" style="-fx-background-color: white;">
                      <children>
-                        <Label fx:id="idUtilisateur" layoutX="45.0" layoutY="28.0" text="Bien venu" />
+                        <Text layoutX="296.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien venu">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
               </content>

@@ -6,7 +6,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="containerMesParticipation" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.MesParticipationsController">
    <children>
-      <TableView fx:id="listeDesBA" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="418.0">
+      <TableView fx:id="listeDesBA" layoutX="14.0" layoutY="14.0" prefHeight="271.0" prefWidth="418.0">
         <columns>
           <TableColumn fx:id="nomJeux" prefWidth="139.0" text="Nom du bon d'achcat" />
           <TableColumn fx:id="prix" prefWidth="118.0" text="Le prix à gagner" />

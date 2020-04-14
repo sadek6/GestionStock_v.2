@@ -7,32 +7,104 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.PanelAdminController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="1031.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.PanelAdminController">
    <children>
       <HBox prefHeight="113.0" prefWidth="600.0">
          <children>
-            <AnchorPane prefHeight="101.0" prefWidth="610.0">
+            <AnchorPane prefHeight="113.0" prefWidth="1032.0" style="-fx-background-color: #2f85c3;">
                <children>
-                  <HBox layoutX="149.0" prefHeight="107.0" prefWidth="280.0">
+                  <HBox prefHeight="107.0" prefWidth="893.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="107.0" prefWidth="155.0">
                            <children>
-                              <MenuButton mnemonicParsing="false" text="Les commandes">
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="168.0" style="-fx-background-color: #2f85c3;" text="Les commandes" textFill="WHITE">
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#afficherCommandes" text="Liste des commandes" />
                                 </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </MenuButton>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="107.0" prefWidth="121.0">
                            <children>
-                              <MenuButton mnemonicParsing="false" text="Jeux">
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #2f85c3;" text="Bon d'achat" textFill="#f8efef">
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#ajouterJeuxConcours" text="Ajouter" />
                                   <MenuItem mnemonicParsing="false" onAction="#ListerJeuxConcours" text="Lister" />
                                     <MenuItem mnemonicParsing="false" onAction="#ListerParticipants" text="Liste des participants" />
                                 </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="102.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="96.0" style="-fx-background-color: #2f85c3;" text="Materiel" textFill="#f8f8f8">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#ajouterMateriel" text="Ajouter" />
+                                  <MenuItem mnemonicParsing="false" onAction="#listeMateriel" text="Lister" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="99.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="99.0" style="-fx-background-color: #2f85c3;" text="Location" textFill="#f8f8f8">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#ajouterLocation" text="Lister" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="101.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="101.0" style="-fx-background-color: #2f85c3;" text="Livraison" textFill="WHITE">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#ajouterLivraison" text="Ajouter" />
+                                  <MenuItem mnemonicParsing="false" onAction="#listerLivraison" text="Lister" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="106.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="108.0" style="-fx-background-color: #2f85c3;" text="Chauffeur" textFill="WHITE">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#ajouterChauffeur" text="Ajouter" />
+                                  <MenuItem mnemonicParsing="false" onAction="#listerChauffeur" text="Lister" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="122.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="128.0" style="-fx-background-color: #2f85c3;" text="Reclamation" textFill="WHITE">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#afficherReclamation" text="Lister" />
+                                  <MenuItem mnemonicParsing="false" onAction="#repondre" text="repondre" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </MenuButton>
                            </children>
                         </VBox>
@@ -42,11 +114,11 @@
             </AnchorPane>
          </children>
       </HBox>
-      <HBox prefHeight="421.0" prefWidth="694.0">
+      <HBox prefHeight="606.0" prefWidth="912.0">
          <children>
-            <ScrollPane prefHeight="421.0" prefWidth="691.0">
+            <ScrollPane prefHeight="642.0" prefWidth="1031.0" style="-fx-background-color: white;">
               <content>
-                <AnchorPane fx:id="containerAdmin" minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="689.0">
+                <AnchorPane fx:id="containerAdmin" minHeight="0.0" minWidth="0.0" prefHeight="602.0" prefWidth="1025.0" style="-fx-background-color: white;">
                      <children>
                         <Label layoutX="101.0" layoutY="25.0" text="Admin" />
                      </children></AnchorPane>

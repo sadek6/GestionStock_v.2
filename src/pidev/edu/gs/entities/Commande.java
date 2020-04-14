@@ -53,10 +53,10 @@ public class Commande {
     @Override
     public int hashCode() {
         int hash = 2;
-        hash = 4 * hash + this.idClient;
-        //hash = 4 * hash + this.prixTotale;
+        //hash =  hash + this.idClient;
+        hash = hash + this.prixTotale;
         //hash = 2 * hash + Objects.hashCode(this.etat);
-        hash = 2 * hash + this.adresse;
+        hash =  hash + this.adresse;
         return hash;
     }
 

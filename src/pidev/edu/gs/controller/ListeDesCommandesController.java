@@ -118,12 +118,15 @@ public class ListeDesCommandesController implements Initializable {
                         setGraphic(null);
                         setText(null);
                     } else {//if(4>9){
+                        
                         final Button test = new Button("Annuler");
                         test.setOnAction(event -> {
                             Commande p = getTableView().getItems().get(getIndex());
                             CommandeService commandeService1 = new CommandeService();
 
                             commandeService.remove(p.getId());
+                            
+                  
                             try {
                                 refresh();
                             } catch (IOException ex) {

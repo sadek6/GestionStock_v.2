@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="containerCommande" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.CommandeAdminController">
    <children>
-      <TableView fx:id="listeCommandeAdmin" layoutX="5.0" layoutY="44.0" prefHeight="200.0" prefWidth="587.0">
+      <TableView fx:id="listeCommandeAdmin" layoutX="5.0" layoutY="44.0" prefHeight="322.0" prefWidth="587.0">
         <columns>
           <TableColumn fx:id="nomClient" prefWidth="75.0" text="Nom client" />
           <TableColumn fx:id="idCommande" prefWidth="111.0" text="Id Commande" />

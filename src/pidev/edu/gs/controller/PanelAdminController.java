@@ -66,4 +66,76 @@ public class PanelAdminController implements Initializable {
         containerAdmin.getChildren().setAll(root);
     }
     
+    @FXML
+    public void ajouterMateriel(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher commandes admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/ajouterMateriel.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void listeMateriel(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher commandes admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeMateriel.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ajouterLocation(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/AjouterLocation.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ajouterLivraison(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/Livraison.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void listerLivraison(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/MSAlivraison.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ajouterChauffeur(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/ajouterChauffeur.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void listerChauffeur(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeChauffeur.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void afficherReclamation(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/AfficherReclamation.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void repondre(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/Reponse.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
 }

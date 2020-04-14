@@ -50,7 +50,7 @@ public class ListeDesProduitsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         System.out.println("afficher list des produits");
-        nomUtilisateur.setText(("Bienvenu " + String.valueOf(SeConnecterController.idUtilisateur)));
+        nomUtilisateur.setText("Liste des Produits" );
         populateTableView();
     }  
     
@@ -95,6 +95,7 @@ public class ListeDesProduitsController implements Initializable {
             };
             return cell; //To change body of generated lambdas, choose Tools | Templates.
         };
+        
         ajouterPanier.setCellFactory(cellFactory);
         listeProduits.setItems(list);
         

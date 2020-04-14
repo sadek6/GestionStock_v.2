@@ -30,6 +30,8 @@ import pidev.edu.gs.entities.JeuxConcours;
 import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.services.JeuxConcoursService;
 import java.util.concurrent.ThreadLocalRandom;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 
 /**
@@ -82,6 +84,9 @@ public class ListeJeuxConcoursController implements Initializable {
         // TODO
         idd.setVisible(false);
         showHide(false);
+        listeJeuxConcours.setEditable(true);
+        nomJeux.setCellFactory(TextFieldTableCell.forTableColumn());
+        //prix.setCellFactory(TextFieldTableCell.forTableColumn());
         populateTableView();
     }
 
@@ -305,6 +310,23 @@ public class ListeJeuxConcoursController implements Initializable {
         }
 
         return false;
+    }
+    
+    public void changeTitreCellEvent(CellEditEvent cellEditEvent){
+        System.out.println("****************************");
+        JeuxConcours jeuxConcours = listeJeuxConcours.getSelectionModel().getSelectedItem();
+        jeuxConcours.setNomJeux(cellEditEvent.getNewValue().toString());
+        
+        JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
+        jeuxConcoursService.modifierJeuxConcours(jeuxConcours);
+    }
+    
+    public void changePrixCellEvent(CellEditEvent cellEditEvent){
+        JeuxConcours jeuxConcours = listeJeuxConcours.getSelectionModel().getSelectedItem();
+        jeuxConcours.setPrix(Integer.parseInt(cellEditEvent.getNewValue().toString()));
+        
+        JeuxConcoursService jeuxConcoursService = new JeuxConcoursService();
+        jeuxConcoursService.modifierJeuxConcours(jeuxConcours);
     }
 
 }

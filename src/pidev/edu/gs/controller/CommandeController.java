@@ -28,8 +28,10 @@ import pidev.edu.gs.entities.Addresse;
 import pidev.edu.gs.entities.Commande;
 import pidev.edu.gs.entities.Panier;
 import pidev.edu.gs.entities.PanierVendu;
+import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.services.AddresseService;
 import pidev.edu.gs.services.CommandeService;
+import pidev.edu.gs.services.GestionUtilisateur;
 import pidev.edu.gs.services.PanierService;
 import pidev.edu.gs.services.PanierVenduService;
 import pidev.edu.gs.services.ProduitService;
@@ -76,6 +78,9 @@ public class CommandeController implements Initializable {
         // TODO
         numTelTest.setVisible(false);
         codePostaleTest.setVisible(false);
+        GestionUtilisateur gestionUtilisateur = new GestionUtilisateur();
+        Utilisateur utilisateur = gestionUtilisateur.findUser(SeConnecterController.idUtilisateur);
+        email.setText(utilisateur.getEmail());
     }
 
     @FXML

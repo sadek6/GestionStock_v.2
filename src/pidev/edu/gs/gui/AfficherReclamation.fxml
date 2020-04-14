@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="pidev.edu.gs.controller.AfficherReclamationController">
+   <children>
+      <TableView fx:id="table" layoutX="-3.0" prefHeight="400.0" prefWidth="606.0">
+        <columns>
+          <TableColumn fx:id="coldesc" prefWidth="139.0" text="Description" />
+          <TableColumn fx:id="coldate" prefWidth="115.0" text="Date" />
+            <TableColumn fx:id="coletat" prefWidth="115.0" text="Etat" />
+            <TableColumn fx:id="coltype" prefWidth="115.0" text="Type" />
+            <TableColumn fx:id="colreponse" prefWidth="115.0" text="Reponse" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
+

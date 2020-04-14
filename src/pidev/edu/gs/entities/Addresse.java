@@ -27,13 +27,13 @@ public class Addresse {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 4 * hash + this.id;
-        hash = 4 * hash + this.numTel;
-        hash = 4 * hash + Objects.hashCode(this.mail);
+        int hash = 2;
+        //hash = 4 * hash + this.id;
+        //hash = 1 * hash + this.numTel;
+        //hash = 4 * hash + Objects.hashCode(this.mail);
         //hash = 13 * hash + Objects.hashCode(this.pays);
-        //hash = 13 * hash + Objects.hashCode(this.ville);
-        hash = 4 * hash + this.pinCode;
+        hash = 13 * hash + Objects.hashCode(this.ville);
+        hash = 2 * hash + this.pinCode;
         return hash;
     }
 
