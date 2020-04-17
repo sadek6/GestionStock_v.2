@@ -16,19 +16,16 @@ public class Produit {
     private float prix;
     private int quantite;
 
-    public Produit() {
-    }
-
     public Produit(int id, String nom, float prix, int quantite) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
         this.quantite = quantite;
     }
-
+public Produit(){}
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" + prix + ", quantite=" + quantite + '}';
+        return "Produit{" + "id=" + id + ", nom=" + nom + ", prix=" + prix + ", quantiteProduit=" + quantite + '}';
     }
 
     public int getId() {

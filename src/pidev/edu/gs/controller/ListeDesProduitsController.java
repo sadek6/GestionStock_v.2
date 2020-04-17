@@ -5,23 +5,19 @@
  */
 package pidev.edu.gs.controller;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import pidev.edu.gs.entities.Produit;
 import pidev.edu.gs.services.PanierService;
 import pidev.edu.gs.services.ProduitService;
+
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -50,14 +46,14 @@ public class ListeDesProduitsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         System.out.println("afficher list des produits");
-        nomUtilisateur.setText("Liste des Produits" );
+        nomUtilisateur.setText(("Bienvenu " + String.valueOf(SeConnecterController.idUtilisateur)));
         populateTableView();
     }  
     
     private void populateTableView() {
         
         ProduitService produitService = new ProduitService();
-        list = produitService.afficher();
+        list.addAll(produitService.afficher());
         
         nomProduit.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prixProduit.setCellValueFactory(new PropertyValueFactory<>("prix"));
@@ -95,7 +91,6 @@ public class ListeDesProduitsController implements Initializable {
             };
             return cell; //To change body of generated lambdas, choose Tools | Templates.
         };
-        
         ajouterPanier.setCellFactory(cellFactory);
         listeProduits.setItems(list);
         

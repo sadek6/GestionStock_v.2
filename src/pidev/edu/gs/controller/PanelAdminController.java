@@ -145,5 +145,18 @@ public class PanelAdminController implements Initializable {
         Parent root = loader.load();
         containerAdmin.getChildren().setAll(root);
     }
-    
+
+    public void listerProduit(ActionEvent actionEvent) throws IOException {
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/liste_produit_admin.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+
+    public void listerCategories(ActionEvent actionEvent) throws IOException {
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/list_categorie.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
 }

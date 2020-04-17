@@ -121,6 +121,33 @@
                               </MenuButton>
                            </children>
                         </VBox>
+                        <VBox prefHeight="107.0" prefWidth="118.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="89.0" prefWidth="115.0"
+                                          style="-fx-background-color: #2f85c3;" text="Produits" textFill="#fcf7f7">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#listerProduit" text="lister" />
+
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="107.0" prefWidth="118.0">
+                           <children>
+                              <MenuButton mnemonicParsing="false" prefHeight="89.0" prefWidth="115.0"
+                                          style="-fx-background-color: #2f85c3;" text="Categories" textFill="#fcf7f7">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#listerCategories" text="lister" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
