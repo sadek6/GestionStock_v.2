@@ -43,6 +43,14 @@ public class PanelAdminController implements Initializable {
     }
     
     @FXML
+    public void stat(ActionEvent actionEvent) throws IOException{
+        System.out.println("ajouter location admin");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/statCommande.fxml"));
+        Parent root = loader.load();
+        containerAdmin.getChildren().setAll(root);
+    }
+    
+    @FXML
     public void ajouterJeuxConcours(ActionEvent actionEvent) throws IOException{
         System.out.println("ajouter jeux concours");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/formulaireJeuxConcours.fxml"));

@@ -22,10 +22,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import pidev.edu.gs.controller.PanelAdminController;
 import pidev.edu.gs.entities.Materiel;
 import pidev.edu.gs.services.MaterielService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -83,6 +87,10 @@ public class AjouterMaterielController implements Initializable {
         System.out.println(materiel);
         MaterielService materielService = new MaterielService();
         materielService.ajouter(materiel);
+        TrayNotification tray = new TrayNotification("Successfully",
+                    "Materiel ajouter avec succès", NotificationType.SUCCESS);
+            tray.setAnimationType(AnimationType.SLIDE);
+            tray.showAndDismiss(Duration.seconds(3));
         precedent();
     }
     

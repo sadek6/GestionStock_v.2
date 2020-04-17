@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev.edu.gs.controller;
+package pidev.edu.gs.gui;
 
-import java.awt.Color;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,11 +30,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.services.UserService;
-import javafx.scene.control.cell.PropertyValueFactory;
 import pidev.edu.gs.utils.ConnectionBD;
 
 /**
@@ -79,12 +78,14 @@ public class UserModifierController implements Initializable {
         
         public ObservableList<Utilisateur> data=FXCollections.observableArrayList();
 
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         viewUser();
+        
         List<PieChart.Data> l = new ArrayList<>();
         UserService ps = new UserService();
         ps.getAllUser().stream().forEach(p->{
@@ -222,14 +223,5 @@ public class UserModifierController implements Initializable {
            
    
     }
-         
-         
-         
-         
-         
-         
-         
-         
- 
     
 }

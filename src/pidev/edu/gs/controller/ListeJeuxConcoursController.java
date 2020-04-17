@@ -33,6 +33,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
+import javax.mail.MessagingException;
+import pidev.edu.gs.services.GestionUtilisateur;
+import pidev.edu.gs.utils.Mail;
 
 /**
  * FXML Controller class
@@ -169,6 +172,13 @@ public class ListeJeuxConcoursController implements Initializable {
                                 int r = ThreadLocalRandom.current().nextInt(1, l.size() - 1);
                                 System.out.println(r);
                                 System.out.println(l.get(r).toString());
+                                /*Utilisateur utilisateur = l.get(r);
+                                GestionUtilisateur gestionUtilisateur = new GestionUtilisateur();
+                                try {
+                                    Mail.sendMail(gestionUtilisateur.findUser(utilisateur.getId()).getEmail());
+                                } catch (MessagingException ex) {
+                                    Logger.getLogger(ListeJeuxConcoursController.class.getName()).log(Level.SEVERE, null, ex);
+                                }*/
                                 p.setEtat(1);
                                 System.out.println("***************");
                                 jeuxConcoursService.modifierJeuxConcoursT(p);

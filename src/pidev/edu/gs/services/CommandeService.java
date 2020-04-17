@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import pidev.edu.gs.entities.Commande;
@@ -117,5 +118,27 @@ public class CommandeService {
         }
     }
     
+    public int CountParcByCateg(String c) throws SQLException {  
+     
+     int count=0;
+    String requete="SELECT count(*) from commande where etat='"+c+"'";
+    Statement st;
+    st = cnx.createStatement();
+   try {
+              st = cnx.createStatement(); 
+              ResultSet rs = st.executeQuery(requete);
+              while (rs.next()){
+            count = rs.getInt("count(*)");
+              }
+            } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            
+        }
+        return count;
+        
+
+      
+ } 
     
+     
 }

@@ -22,6 +22,7 @@
                               <MenuButton mnemonicParsing="false" prefHeight="90.0" prefWidth="168.0" style="-fx-background-color: #2f85c3;" text="Les commandes" textFill="WHITE">
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#afficherCommandes" text="Liste des commandes" />
+                                    <MenuItem mnemonicParsing="false" onAction="#stat" text="satat" />
                                 </items>
                                  <font>
                                     <Font name="System Bold" size="14.0" />

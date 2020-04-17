@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -30,9 +31,9 @@ public class PanelClientController implements Initializable {
     @FXML
     private AnchorPane container_client;
     @FXML
-    private Label idUtilisateur;
-    @FXML
     private MenuItem mesParticipations;
+    @FXML
+    private VBox co;
 
     /**
      * Initializes the controller class.
@@ -100,16 +101,10 @@ public class PanelClientController implements Initializable {
     
     @FXML
     public void logout() throws IOException{
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/seConnecter.fxml"));
-            Parent root = loader.load();
-            SeConnecterController sc = loader.getController();
-
-            //idUtilisateur.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            //Logger.getLogger(PannelUserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("afficher jeux *************");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/seConnecter.fxml"));
+        Parent root = loader.load();
+        co.getChildren().setAll(root);
     }
     
     
