@@ -8,12 +8,16 @@ package pidev.edu.gs.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -27,6 +31,8 @@ public class PanelClientController implements Initializable {
     private AnchorPane container_client;
     @FXML
     private Label idUtilisateur;
+    @FXML
+    private MenuItem mesParticipations;
 
     /**
      * Initializes the controller class.
@@ -59,4 +65,54 @@ public class PanelClientController implements Initializable {
         Parent root = loader.load();
         container_client.getChildren().setAll(root);
     }
+    
+    @FXML
+    public void afficherJeux(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher jeux");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/listeJeuxConcoursClient.fxml"));
+        Parent root = loader.load();
+        container_client.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void afficherMesParticipation(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher jeux *************");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/mesParticipations.fxml"));
+        Parent root = loader.load();
+        container_client.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void ajouterReclamation(ActionEvent actionEvent) throws IOException{
+        System.out.println("afficher jeux *************");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/Reclamation.fxml"));
+        Parent root = loader.load();
+        container_client.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void afficherReponse(ActionEvent actionEvent) throws IOException{
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/AfficheReponse.fxml"));
+        Parent root = loader.load();
+        container_client.getChildren().setAll(root);
+    }
+    
+    @FXML
+    public void logout() throws IOException{
+        try {
+            System.out.println("deconnexion !");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/seConnecter.fxml"));
+            Parent root = loader.load();
+            container_client.getChildren().setAll(root);
+
+            //idUtilisateur.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            //Logger.getLogger(PannelUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+   
 }

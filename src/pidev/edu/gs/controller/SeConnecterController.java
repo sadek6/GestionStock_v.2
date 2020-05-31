@@ -19,7 +19,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import pidev.edu.gs.entities.Utilisateur;
+import pidev.edu.gs.controller.UserModifierController;
 import pidev.edu.gs.services.UtilisateurService;
 import pidev.edu.gs.utils.Password;
 
@@ -30,6 +32,8 @@ import pidev.edu.gs.utils.Password;
  */
 public class SeConnecterController implements Initializable {
 
+     @FXML
+    private AnchorPane loginAP;
     @FXML
     private TextField nomUtilisateur;
     @FXML
@@ -59,16 +63,26 @@ public class SeConnecterController implements Initializable {
 
         Password md = new Password();
         Boolean mdpCrypte = md.checkPassword(mdp.getText(), utilisateur.getPassword());
-
+        System.out.println(utilisateur.getEnabled());
+        if (utilisateur.getEnabled()== null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("vous etes bloqués");
+            alert.show();
+            System.out.println("vous etes bloqués");
+            return;
+        
+        }
         if (mdpCrypte == true) {
-            System.out.println("authentification reussite");
+            System.out.println("authentification reussite22222");
             idUtilisateur = utilisateur.getId();
             if (utilisateur.getRoles().equals("a:1:{i:0;s:11:\"ROLE_CLIENT\";}")) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panelClient.fxml"));
                 Parent root = loader.load();
                 PanelClientController panelClientController = loader.getController();
                 mdp.getScene().setRoot(root);
-            }else if(utilisateur.getRoles().equals("a:1:{i:0;s:16:\"ROLE_RESPONSABLE\";}")){
+            }else if(utilisateur.getRoles().equals("a:1:{i:0;s:10:\"ROLE_AGENT\";}")){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/panelAdmin.fxml"));
                 Parent root = loader.load();
                 PanelAdminController panelAdminController = loader.getController();
@@ -91,6 +105,15 @@ public class SeConnecterController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/sinscrire.fxml"));
         Parent root = loader.load();
         SinscrireController sinscrireController = loader.getController();
+        nomUtilisateur.getScene().setRoot(root);
+    }
+    
+    @FXML
+    private void goToFPW(ActionEvent actionEvent) throws IOException {
+        
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("/pidev/edu/gs/gui/Forgetpw.fxml"));
+                Parent root = loader.load();
+                ForgetpwController forgetpwController = loader.getController();
         nomUtilisateur.getScene().setRoot(root);
     }
 

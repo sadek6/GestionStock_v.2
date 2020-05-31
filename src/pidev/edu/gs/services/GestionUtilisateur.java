@@ -52,4 +52,20 @@ public class GestionUtilisateur {
             return false;
         return true;
     }
+    
+    public Utilisateur findUser(int idUser){
+        String req = "select nom, email from User where id = ?";
+        Utilisateur utilisateur = new Utilisateur();
+        try {
+            PreparedStatement pst = ConnectionBD.getInstance().getCnx().prepareStatement(req);
+            pst.setInt(1, idUser);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                utilisateur.setNomUser(rs.getString(1));
+                utilisateur.setEmail(rs.getString(2));
+            }
+        } catch (SQLException ex) {
+        }
+        return utilisateur;
+    }
 }

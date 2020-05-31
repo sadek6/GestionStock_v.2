@@ -18,7 +18,7 @@ public class Utilisateur {
     private String usernameCanonical;
     private String email;
     private String emailCanonical;
-    private boolean enabled;
+    
     private String salt;
     private String password;
     private Date lastLogin;
@@ -27,6 +27,65 @@ public class Utilisateur {
     private String roles;
     private String nomUser;
     private String prenomUser;
+    private String image;
+    private Integer enabled;
+    
+    public Utilisateur(Integer id, String username, String usernameCanonical, String email, 
+            String emailCanonical, Integer enabled, String salt, String password, Date lastLogin, 
+            
+            String confirmationToken, Date passwordRequestedAt, String roles, String nomUser, String prenomUser, String image) {
+        this.id = id;
+        this.username = username;
+        this.usernameCanonical = usernameCanonical;
+        this.email = email;
+        this.emailCanonical = emailCanonical;
+        this.enabled = enabled;
+        this.salt = salt;
+        this.password = password;
+        this.lastLogin = lastLogin;
+        this.confirmationToken = confirmationToken;
+        this.passwordRequestedAt = passwordRequestedAt;
+        this.roles = roles;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.image = image;
+    }
+
+    public Utilisateur(String username, String email, Integer enabled, String roles, String image) {
+        this.username = username;
+        this.email = email;
+        this.enabled = enabled;
+        this.roles = roles;
+        this.image = image;
+    }
+        public Utilisateur(int id,String username, String email, Integer enabled, String roles, String image) {
+            this.id=id;
+        this.username = username;
+        this.email = email;
+        this.enabled = enabled;
+        this.roles = roles;
+        this.image = image;
+    }
+        public Utilisateur(int id) {
+            this.id=id;
+     
+    }
+
+    public Utilisateur(Integer id, String username, String usernameCanonical, String email, String emailCanonical, Integer enabled, String salt, String password, String confirmationToken, String roles, String nomUser, String prenomUser, String image) {
+        this.id = id;
+        this.username = username;
+        this.usernameCanonical = usernameCanonical;
+        this.email = email;
+        this.emailCanonical = emailCanonical;
+        this.enabled = enabled;
+        this.salt = salt;
+        this.password = password;
+        this.confirmationToken = confirmationToken;
+        this.roles = roles;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.image = image;
+    }
 
     public Utilisateur() {
     }
@@ -34,6 +93,14 @@ public class Utilisateur {
     @Override
     public String toString() {
         return "Utilisateur{" + "id=" + id + ", username=" + username + ", usernameCanonical=" + usernameCanonical + ", email=" + email + ", emailCanonical=" + emailCanonical + ", enabled=" + enabled + ", salt=" + salt + ", password=" + password + ", lastLogin=" + lastLogin + ", confirmationToken=" + confirmationToken + ", passwordRequestedAt=" + passwordRequestedAt + ", roles=" + roles + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + '}';
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getId() {
@@ -76,13 +143,15 @@ public class Utilisateur {
         this.emailCanonical = emailCanonical;
     }
 
-    public boolean isEnabled() {
+    public Integer getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(Integer enabled) {
         this.enabled = enabled;
     }
+
+    
 
     public String getSalt() {
         return salt;

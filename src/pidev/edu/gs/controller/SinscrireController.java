@@ -5,7 +5,12 @@
  */
 package pidev.edu.gs.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -20,11 +25,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import javafx.util.Duration;
+import javax.mail.MessagingException;
+import static pidev.edu.gs.controller.AjouterChauffeurController.copier;
 import pidev.edu.gs.controller.SeConnecterController;
 import pidev.edu.gs.entities.Utilisateur;
 import pidev.edu.gs.services.GestionUtilisateur;
+import pidev.edu.gs.utils.Mail2;
 import pidev.edu.gs.utils.Password;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -43,21 +55,24 @@ public class SinscrireController implements Initializable {
     private TextField nom;
     @FXML
     private TextField email;
-    @FXML
-    private TextField numTel;
+    
     @FXML
     private PasswordField mdp;
    
     Boolean verificationNom = false;
     Boolean verificationPrenom = false;
     Boolean verificationEmail = false;
-    Boolean verificationNumTel = false;
+ 
     Boolean verificationMdp = false;
     
+    
     @FXML
-    private Label numTelTest;
-    @FXML
-    private Label cmdpTest;
+    private ImageView Image;
+     int c;
+    int file;
+    File pDir;
+    File pfile;
+    String lien;
 
     /**
      * Initializes the controller class.
@@ -66,12 +81,15 @@ public class SinscrireController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         System.out.println("S'inscrire");
-        numTelTest.setVisible(false);
+        c = (int) (Math.random() * (300000 - 2 + 1)) + 2;
+        pDir = new File( c + ".jpg");
+        lien =  c + ".jpg";
+       
         
     }
 
     @FXML
-    public void sinscrire(ActionEvent actionEvent) throws IOException {
+    public void sinscrire(ActionEvent actionEvent) throws IOException, MessagingException {
         if (verificationNom == false) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
@@ -92,12 +110,7 @@ public class SinscrireController implements Initializable {
             alert.setHeaderText("Warning");
             alert.setContentText("Veuillez remplir l'email");
             alert.show();
-        } else if (verificationNumTel == false) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Warning");
-            alert.setContentText("Veuillez remplir le telephone");
-            alert.show();
+        
 
         } else if (verificationEmail == false) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -124,6 +137,8 @@ public class SinscrireController implements Initializable {
             utilisateur.setPassword(mdpCrypte1);
             utilisateur.setNomUser(nom.getText());
             utilisateur.setPrenomUser(prenom.getText());
+            copier(pfile,pDir);
+            utilisateur.setImage(lien);
 
             GestionUtilisateur gestionUtilisateur = new GestionUtilisateur();
             gestionUtilisateur.ajouterClient(utilisateur);
@@ -137,6 +152,7 @@ public class SinscrireController implements Initializable {
             Parent root = loader.load();
             SeConnecterController seConnecterController = loader.getController();
             prenom.getScene().setRoot(root);
+            Mail2.sendMail(utilisateur.getEmail());
         }
     }
 
@@ -164,29 +180,7 @@ public class SinscrireController implements Initializable {
         }
     }
 
-    @FXML
-    private void controlNumero(KeyEvent event) {
-        verificationNumTel = false;
-        if (numTel.getText().trim().length() == 7) {
-            boolean test = true;
-            for (int i = 1; i < numTel.getText().trim().length() && test; i++) {
-                char ch = numTel.getText().charAt(i);
-                if (Character.isLetter(ch)) {
-                    test = false;
-                }
-            }
-            if (test) {
-                System.out.println("taille num est valide");
-                numTelTest.setVisible(false);
-                verificationNumTel = true;
-            }
-        } else {
-            System.out.println("taille num non valide");
-            numTelTest.setVisible(true);
-            numTelTest.setText("Il faut 8 chiffres");
-            verificationNumTel = false;
-        }
-    }
+   
     
     @FXML
     private void controlEmail(KeyEvent event) throws SQLException {
@@ -217,6 +211,45 @@ public class SinscrireController implements Initializable {
             verificationMdp = true;
 
         }
+    }
+
+    @FXML
+    private void Load(ActionEvent event) throws MalformedURLException {
+                    FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image: ");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("JPEG", "*.jpeg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("BMP", "*.bmp")
+        );
+        Window stage = null;
+        pfile = fileChooser.showOpenDialog(stage);
+
+        /* - draw image */
+        if (pfile != null) {
+            file=1;
+            Image image = new Image(pfile.toURI().toURL().toExternalForm());
+            Image.setImage(image);
+    }  
+    }
+    
+ public static boolean copier(File source, File dest){
+        
+         try (InputStream sourceFile = new java.io.FileInputStream(source);
+                OutputStream destinationFile = new FileOutputStream(dest)) {
+            // Lecture par segment de 0.5Mo  
+            byte buffer[] = new byte[512 * 1024];
+            int nbLecture;
+            while ((nbLecture = sourceFile.read(buffer)) != -1) {
+                destinationFile.write(buffer, 0, nbLecture);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return false; // Erreur 
+        }
+        return true; // Résultat OK   
+       
     }
 
 }

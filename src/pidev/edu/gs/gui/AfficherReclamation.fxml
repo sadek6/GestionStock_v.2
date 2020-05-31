@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.AfficherReclamationController">
+   <children>
+      <TableView fx:id="table" layoutX="-13.0" layoutY="48.0" prefHeight="334.0" prefWidth="557.0">
+        <columns>
+          <TableColumn fx:id="coldesc" prefWidth="139.0" text="Description" />
+          <TableColumn fx:id="coldate" prefWidth="115.0" text="Date" />
+            <TableColumn fx:id="coletat" prefWidth="75.0" text="Etat" />
+            <TableColumn fx:id="coltype" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="coliduser" prefWidth="75.0" text="IdUser" />
+            <TableColumn fx:id="colreponse" prefWidth="75.0" text="Reponse" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#supprimer" text="supprimer" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <TextField fx:id="filterField" layoutX="206.0" layoutY="14.0" onAction="#filter" />
+   </children>
+</AnchorPane>

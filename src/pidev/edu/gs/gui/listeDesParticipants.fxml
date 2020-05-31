@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="containerListeParticipants" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesParticipantsController">
+   <children>
+      <TableView fx:id="listeDesParticipants" layoutX="4.0" layoutY="6.0" prefHeight="391.0" prefWidth="590.0">
+        <columns>
+          <TableColumn fx:id="idParticipant" prefWidth="84.0" text="ID participant" />
+          <TableColumn fx:id="nomParticipant" prefWidth="103.0" text="Nom participant" />
+            <TableColumn fx:id="idJeuxConcours" prefWidth="88.0" text="ID bon d'achat" />
+            <TableColumn fx:id="nomJeuxConcours" prefWidth="120.0" text="Titre du BA" />
+            <TableColumn fx:id="prix" prefWidth="99.0" text="Le prix à gagner" />
+            <TableColumn fx:id="exclure" prefWidth="95.0" text="Column X" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

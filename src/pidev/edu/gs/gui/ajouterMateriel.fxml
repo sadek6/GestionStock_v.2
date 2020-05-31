@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.AjouterMaterielController">
+   <children>
+      <Label layoutX="126.0" layoutY="77.0" text="Nom">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="109.0" layoutY="160.0" text="Description">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="nomMateriel" layoutX="196.0" layoutY="73.0" />
+      <TextField fx:id="descriptionMateriel" layoutX="196.0" layoutY="157.0" />
+      <Button layoutX="236.0" layoutY="206.0" mnemonicParsing="false" onAction="#ajouterMateriel" style="-fx-background-color: #2f85c3;" text="Valider" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="imageEvent" layoutX="206.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#chooseAction" prefHeight="25.0" prefWidth="130.0" text="image..">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ImageView fx:id="iv" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

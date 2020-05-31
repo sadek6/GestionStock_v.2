@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="containerCommandes" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesCommandesController">
+<AnchorPane id="AnchorPane" fx:id="containerCommandes" prefHeight="458.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.edu.gs.controller.ListeDesCommandesController">
    <children>
-      <TableView fx:id="listeDesCommandes" layoutX="141.0" layoutY="110.0" prefHeight="200.0" prefWidth="441.0">
+      <TableView fx:id="listeDesCommandes" layoutY="7.0" prefHeight="200.0" prefWidth="553.0">
         <columns>
           <TableColumn fx:id="etatCommande" prefWidth="75.0" text="Etat" />
           <TableColumn fx:id="prixTotaleCommande" prefWidth="75.0" text="Prix Totale" />
@@ -14,5 +18,21 @@
             <TableColumn fx:id="imprimerFacteur" prefWidth="123.0" text="Imprimer facteur" />
         </columns>
       </TableView>
+      <Button layoutX="406.0" layoutY="235.0" mnemonicParsing="false" onAction="#getCommande" style="-fx-background-color: #39A67F;" text="Modifier l'adresse" textFill="#fcfcfc">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <TextField fx:id="newNumTel" layoutX="60.0" layoutY="214.0" onKeyPressed="#controlNumero" />
+      <TextField fx:id="newMail" layoutX="60.0" layoutY="250.0" onKeyPressed="#controlEmail" />
+      <TextField fx:id="newPays" layoutX="60.0" layoutY="291.0" onKeyReleased="#controlPays" />
+      <TextField fx:id="newVille" layoutX="60.0" layoutY="327.0" onKeyReleased="#controlVille" />
+      <TextField fx:id="newPinCode" layoutX="60.0" layoutY="363.0" onKeyPressed="#controlCodePostale" />
+      <Button fx:id="mod" layoutX="50.0" layoutY="402.0" mnemonicParsing="false" onAction="#modifierAdresse" style="-fx-background-color: #39A67F;" text="Valider la modification" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Label fx:id="idAdresse" layoutX="300.0" layoutY="283.0" text="Label" />
+      <Label fx:id="testNumTel" layoutX="220.0" layoutY="218.0" text="Label" />
+      <Label fx:id="testCodePostale" layoutX="234.0" layoutY="367.0" text="Label" />
    </children>
 </AnchorPane>

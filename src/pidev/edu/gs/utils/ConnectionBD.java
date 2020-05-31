@@ -20,7 +20,7 @@ public class ConnectionBD {
 
     private ConnectionBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/pidev";
+            String url = "jdbc:mysql://localhost:3306/piwiouw";
             String login = "root";
             String pwd = "";
 
